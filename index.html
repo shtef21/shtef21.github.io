@@ -1,1 +1,103 @@
-Hey
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/plugins/revealjs/reveal.css">
+    <link rel="stylesheet" href="assets/plugins/revealjs/theme/black.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="assets/plugins/highlight/monokai.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        #my_name {
+            font-size: 4rem;
+        }
+
+        .roboto_mono {
+            font-family: 'Roboto Mono';
+        }
+
+        .a_photo {
+            width: 120px;
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            transform: translate(100%, -50%);
+            border-radius: 50%;
+        }
+
+        #my_photo {
+            height: 225px;
+            border-radius: 50%;
+            border: 2px solid white;
+            transform: translate(10px, calc(50% - 50px));
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1 -->
+            <section class="select-none roboto_mono" data-background-color="#00447c">
+
+                <!-- Vertical slide 1 -->
+                <section>
+                    <div class="inline-block text-right">
+                        Hey, I'm <br>
+                        <span id="my_name">
+                            Stjepan
+                        </span>
+                    </div>
+                    <div class="inline-block text-left">
+                        <img id="my_photo" src="/assets/images/dis-my-face.jpg" alt="Hey!">
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 2 -->
+            <section>
+                <!-- Vertical 1 -->
+                <section>
+                    Vertical slide 1
+                </section>
+                <!-- Vertical 2 -->
+                <section>
+                    Vertical slide 2
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="assets/plugins/revealjs/reveal.js"></script>
+    <script src="assets/plugins/notes/notes.js"></script>
+    <script src="assets/plugins/markdown/markdown.js"></script>
+    <script src="assets/plugins/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
+</html>
