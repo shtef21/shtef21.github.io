@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Stjepan Salopek</title>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/plugins/revealjs/reveal.css">
@@ -22,7 +22,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Hiža -->
+    <script src="https://cdn.jsdelivr.net/gh/nevenpalcec/hiza_js/hiza/engine/hiza.engine.js"></script>
+
     <style>
+
+        #goto_start {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            z-index: 9999;
+        }
+
         #my_name {
             font-size: 4rem;
         }
@@ -31,62 +45,208 @@
             font-family: 'Roboto Mono';
         }
 
-        .a_photo {
-            width: 120px;
-            position: absolute;
-            top: 50%;
-            right: -25px;
-            transform: translate(100%, -50%);
-            border-radius: 50%;
+        #slide_1_1 > div, #slide_2_1 > div, #slide_3_1 > div {
+            height: 225px;
+            line-height: 112px;
         }
 
-        #my_photo {
+        .slide_button_div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: unset !important;
+            line-height: unset !important;
+            padding-top: 50px;
+            font-size: 1.5rem;
+            transform: translateY(100%);
+        }
+
+        .slide_button_div button {
+            margin-top: 15px;
+        }
+
+        .slide_img {
+            margin: 0;
             height: 225px;
             border-radius: 50%;
-            border: 2px solid white;
-            transform: translate(10px, calc(50% - 50px));
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        #js_img {
+            margin: 0;
+            height: 225px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .hiza_section > div {
+            width: 45%;
+        }
+
+        .hiza_section textarea {
+            color: black;
+            font-size: 1rem;
+            width: 100%;
+            height: 150px;
+            resize: none;
+            padding: 10px 5px;
+        }
+
+        #hiza_js {
+            height: calc(3rem + 20px);
+            padding-top: 12px;
+            overflow: hidden;
+        }
+
+        #hiza_out {
+            height: 5rem;
         }
     </style>
 </head>
 <body>
+
+    <button id="goto_start" class="opacity-0 transition-opacity duration-200 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+        <i class="fa-solid fa-backward-step"></i>
+    </button>
+
     <div class="reveal">
         <div class="slides">
 
             <!-- Slide 1 -->
-            <section class="select-none roboto_mono" data-background-color="#00447c">
+            <section class="select-none roboto_mono" data-background-color="white">
+            <!-- data-background-color="#00447c"> -->
 
                 <!-- Vertical slide 1 -->
-                <section>
-                    <div class="inline-block text-right">
+                <section id="slide_1_1">
+                    <div class="inline-block text-right align-bottom">
                         Hey, I'm <br>
                         <span id="my_name">
                             Stjepan
                         </span>
                     </div>
-                    <div class="inline-block text-left">
-                        <img id="my_photo" src="/assets/images/dis-my-face.jpg" alt="Hey!">
+                    <div class="inline-block text-left align-bottom">
+                        <img class="slide_img" src="/assets/images/dis-my-face.jpg" alt="Hey!">
+                    </div>
+                    <div class="inline-block slide_button_div w-full">
+
+                        <button id="open_cv" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl">
+                            Check out my CV <i class="fa-solid fa-file-signature"></i>
+                        </button>
+                        <br>
+                        <button id="open_email" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl" data-tooltip="stjepan.salopek@hotmail.com">
+                            Contact me by e-mail <i class="fa-solid fa-envelope"></i>
+                        </button>
+                        <br>
+                        <button id="open_linkedin" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl" data-title="Stjepan Salopek">
+                            Reach me <i class="fa-brands fa-linkedin"></i>
+                        </button>
                     </div>
                 </section>
             </section>
 
             <!-- Slide 2 -->
-            <section>
+            <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
-                <section>
-                    This is a work in progress page
+                <section id="slide_2_1" data-background-color="#24292f">
+                    <div class="inline-block text-right align-bottom">
+                        I'm a <br>
+                        .NET developer
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <img class="slide_img" src="/assets/images/dotnet.svg" alt="Hey!">
+                    </div>
+                    <div class="inline-block slide_button_div w-full">
+
+                        <button id="open_github" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow" data-tooltip="github.com/shtef21">
+                            Check out my projects <i class="fa-brands fa-github"></i>
+                        </button>
+                    </div>
                 </section>
                 <!-- Vertical 2 -->
-                <section>
-                    It will be finished soon...
+                <!-- <section>
+                    Vertical slide 2
+                </section> -->
+            </section>
+
+            <!-- Slide 3 -->
+            <section class="select-none roboto_mono">
+                <!-- Vertical 1 -->
+                <section id="slide_3_1" data-background-color="#24292f">
+                    <div class="inline-block text-right align-bottom">
+                        I'm the creator of <br>
+                        HIŽA templating engine
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <img id="js_img" src="/assets/images/js.svg" alt="Hey!">
+                    </div>
+                    <div class="slide_button_div w-full" style="width: 100%">
+
+                        <button id="hiza_tutorial" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                            Learn more <i class="fa-solid fa-book"></i>
+                        </button>
+                        <br>
+                        <button id="open_hiza_engine" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                            <i class="fa-solid fa-arrow-down"></i> Try it <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </section>
+                
+                <!-- Vertical 2 -->
+                <section id="slide_3_2" class="hiza_section">
+                    <div class="inline-block text-xl pb-4" style="width: 100%; color:#efd81d">
+                        it uses the popular ${} templating synthax...
+                        <br>
+                        ... and includes razor-like components such as <strong>$if</strong>, <strong>$for</strong>...
+                    </div>
+                    <div class="inline-block text-left">
+                        #hiza_in
+                        <!-- Hiža string-->
+                        <textarea id="hiza_in"></textarea>
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        variables
+                        <textarea id="hiza_var"></textarea>
+                    </div>
+                    <div class="inline-block text-left align-bottom pt-3" style="width: 90%;">
+                        <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
+                        <textarea id="hiza_js" class="bg-slate-300" readonly></textarea>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3">
+                        <button id="build_hiza" class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                            <i class="fa-solid fa-cog"></i> Run JS <i class="fa-solid fa-cog"></i>
+                        </button>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3" style="width: 90%;">
+                        #hiza_out
+                        <textarea id="hiza_out"></textarea>
+                    </div>
+                    <div class="opacity-0 transition-opacity duration-200 slide_button_div w-full" style="width: 100%">
+
+                        <button id="hiza_goto_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                    </div>
                 </section>
             </section>
         </div>
     </div>
 
+<template id="hiza_in_example">
+$if (a == b) {
+    <h1> ${a} == ${b} </h1>
+}
+$else {
+    <h3> ${a} and ${b} are not equal! </h3>
+}
+</template>
+
     <script src="assets/plugins/revealjs/reveal.js"></script>
     <script src="assets/plugins/notes/notes.js"></script>
     <script src="assets/plugins/markdown/markdown.js"></script>
     <script src="assets/plugins/highlight/highlight.js"></script>
+
+    <!-- Tooltips -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script>
         // More info about initialization & config:
         // - https://revealjs.com/initialization/
@@ -97,6 +257,90 @@
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
         });
+        Reveal.on('slidechanged', function(event) {
+            if (event.currentSlide.id == 'slide_1_1') {
+                goto_start.classList.add('cursor-default');
+                goto_start.classList.add('opacity-0');
+            }
+            else {
+                goto_start.classList.remove('cursor-default');
+                goto_start.classList.remove('opacity-0');
+            }
+        })
+
+        goto_start.onclick = function() {
+            open('/#', '_self');
+        }
+
+        open_cv.onclick = function() {
+            open('assets\\documents\\Curriculum Vitae.pdf', '_blank');
+        }
+
+        open_linkedin.onclick = function() {
+            open('https://www.linkedin.com/in/stjepan-salopek-5a68a8256', '_blank');
+        }
+
+        open_email.onclick = function() {
+            open('mailto:stjepan.salopek@hotmail.com', '_self');
+        }
+
+        open_github.onclick = function() {
+            open('https://github.com/shtef21', '_blank');
+        }
+
+        open_hiza_engine.onclick = function() {
+            open('#/slide_3_2', '_self');
+        }
+
+        hiza_in.value = hiza_in_example.innerHTML.trim();
+        
+        hiza_var.value = JSON.stringify({
+            a: 3,
+            b: 4
+        }, null, 2);
+
+        hiza_js.value = 'let out = await hiza.engine.build(hiza_in.value, variables);\nhiza_out.value = out;';
+
+        build_hiza.onclick = async function() {
+            let variables = null;
+            try {
+                variables = JSON.parse(hiza_var.value);
+            }
+            catch {
+                hiza_out.value = '"variables" contains invalid JSON';
+                return;
+            }
+
+            try {
+                let out = await hiza.engine.build(hiza_in.value, variables);
+                hiza_out.value = out.trim();
+            }
+            catch(e) {
+                hiza_out.value = e.toString();
+            }
+
+            // // Enable next example
+            // setTimeout(function() {
+            //     hiza_goto_3_3.parentElement.classList.remove('opacity-0');
+            //     hiza_goto_3_3.classList.remove('cursor-default');
+            // }, 500);
+        }
+        hiza_out.value = 'Edit input and variables, or just run the example';
+
+        hiza_tutorial.onclick = function() {
+            open('https://app.my-rents.com/web/hiza-tutorial.html', '_blank');
+        }
+
+        hiza_goto_3_3.onclick = function() {
+            open('#/slide_3_3', '_self');
+        }
+
+        let tooltips = document.querySelectorAll('[data-tooltip]');
+        for (let t of tooltips) {
+            tippy(t, {
+                content: t.dataset.tooltip
+            });
+        }
     </script>
 </body>
 
