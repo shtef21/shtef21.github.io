@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Stjepan Salopek</title>
+    <title>Stjepan Salopek | @shtef21</title>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/plugins/revealjs/reveal.css">
@@ -78,27 +78,32 @@
             border: 2px solid rgba(0, 0, 0, 0.3);
         }
 
+        .hiza_section .w-full {
+            width: 100% !important;
+        }
+
         .hiza_section > div {
             width: 45%;
         }
 
-        .hiza_section textarea {
+        .hiza_section textarea, .hiza_section pre[data-hiza_js] {
             color: black;
             font-size: 1rem;
             width: 100%;
             height: 150px;
             resize: none;
             padding: 10px 5px;
+            margin: 0 !important;
         }
 
-        #hiza_js {
-            height: calc(3rem + 20px);
-            padding-top: 12px;
-            overflow: hidden;
+        [data-hiza_js] {
+            height: calc(3rem + 20px) !important;
+            padding-top: 12px !important;
+            overflow: hidden !important;
         }
 
-        #hiza_out {
-            height: 5rem;
+        [data-hiza_out] {
+            height: 5.5rem !important;
         }
     </style>
 </head>
@@ -192,52 +197,147 @@
                 
                 <!-- Vertical 2 -->
                 <section id="slide_3_2" class="hiza_section">
-                    <div class="inline-block text-xl pb-4" style="width: 100%; color:#efd81d">
-                        it uses the popular ${} templating synthax...
-                        <br>
-                        ... and includes razor-like components such as <strong>$if</strong>, <strong>$for</strong>...
+                    <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
+                        it uses JavaScript's ${} templating synthax...
                     </div>
                     <div class="inline-block text-left">
-                        #hiza_in
+                        <span class="text-[red]">#hiza_in</span>
                         <!-- Hiža string-->
-                        <textarea id="hiza_in"></textarea>
+                        <textarea data-hiza_in></textarea>
+                        <template data-hiza_example>
+                            Hello, my name is ${name}!
+                        </template>
                     </div>
                     <div class="inline-block text-left align-bottom">
-                        variables
-                        <textarea id="hiza_var"></textarea>
+                        <span class="text-[green]">variables</span>
+                        <textarea data-hiza_var>{"name":"Steve"}</textarea>
                     </div>
-                    <div class="inline-block text-left align-bottom pt-3" style="width: 90%;">
+                    <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
                         <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
-                        <textarea id="hiza_js" class="bg-slate-300" readonly></textarea>
+                        <pre data-hiza_js class="bg-slate-300 text-[black] text-md" readonly>
+let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value, <span class="text-[green]">variables</span>);
+<span class="text-[blue]">hiza_out</span>.value = out;
+                        </pre>
                     </div>
                     <div class="inline-block text-center align-bottom pt-3">
-                        <button id="build_hiza" class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                        <button data-build_hiza class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
                             <i class="fa-solid fa-cog"></i> Run JS <i class="fa-solid fa-cog"></i>
                         </button>
                     </div>
-                    <div class="inline-block text-center align-bottom pt-3" style="width: 90%;">
-                        #hiza_out
-                        <textarea id="hiza_out"></textarea>
+                    <div class="inline-block text-center align-bottom pt-3" style="width: 92.5%;">
+                        <span class="text-[#5f5fff]">#hiza_out</span>
+                        <textarea data-hiza_out></textarea>
                     </div>
-                    <div class="opacity-0 transition-opacity duration-200 slide_button_div w-full" style="width: 100%">
+                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
 
-                        <button id="hiza_goto_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                        <button data-hiza_goto="#/slide_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
                             <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
                         </button>
                     </div>
                 </section>
+                
+                <!-- Vertical 3 -->
+                <section id="slide_3_3" class="hiza_section">
+                    <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
+                        ... and enables you to use razor-like keywords such as <strong>$if-else</strong>...
+                    </div>
+                    <div class="inline-block text-left">
+                        <span class="text-[red]">#hiza_in</span>
+                        <!-- Hiža string-->
+                        <textarea data-hiza_in></textarea>
+                        <template data-hiza_example>
+                            <h3>
+                                Weather report:
+                                $if (weather == 'rain') {
+                                    Bring an umbrella!
+                                }
+                                $else if (weather == 'sun') {
+                                    Enjoy the sun!
+                                }
+                                $else {
+                                    Take your coat!
+                                }
+                            </h3>
+                        </template>
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <span class="text-[green]">variables</span>
+                        <textarea data-hiza_var>{"weather":"rain"}</textarea>
+                    </div>
+                    <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
+                        <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
+                        <pre data-hiza_js class="bg-slate-300 text-[black] text-md" readonly>
+let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value, <span class="text-[green]">variables</span>);
+<span class="text-[blue]">hiza_out</span>.value = out;
+                        </pre>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3">
+                        <button data-build_hiza class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                            <i class="fa-solid fa-cog"></i> Run JS <i class="fa-solid fa-cog"></i>
+                        </button>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3" style="width: 92.5%;">
+                        <span class="text-[#5f5fff]">#hiza_out</span>
+                        <textarea data-hiza_out></textarea>
+                    </div>
+                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
+
+                        <button data-hiza_goto="#/slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </section>
+                
+                <!-- Vertical 3 -->
+                <section id="slide_3_4" class="hiza_section">
+                    <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
+                        ... you may even use a <strong>$for</strong> loop
+                    </div>
+                    <div class="inline-block text-left">
+                        <span class="text-[red]">#hiza_in</span>
+                        <!-- Hiža string-->
+                        <textarea data-hiza_in></textarea>
+                        <template data-hiza_example>
+                            <h3>Attendance:</h3>
+                            <ol>
+                                $for (let person of people) {
+                                    <li> ${person} </li>
+                                }
+                            </ol>
+                        </template>
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <span class="text-[green]">variables</span>
+                        <textarea data-hiza_var>{"people":["John", "Whitney", "Mike"]}</textarea>
+                    </div>
+                    <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
+                        <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
+                        <pre data-hiza_js class="bg-slate-300 text-[black] text-md" readonly>
+let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value, <span class="text-[green]">variables</span>);
+<span class="text-[blue]">hiza_out</span>.value = out;
+                        </pre>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3">
+                        <button data-build_hiza class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
+                            <i class="fa-solid fa-cog"></i> Run JS <i class="fa-solid fa-cog"></i>
+                        </button>
+                    </div>
+                    <div class="inline-block text-center align-bottom pt-3" style="width: 92.5%;">
+                        <span class="text-[#5f5fff]">#hiza_out</span>
+                        <textarea data-hiza_out></textarea>
+                    </div>
+                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
+
+                        <!-- This is the last slide -->
+                        <!-- <button data-hiza_goto="slide_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
+                        </button> -->
+                    </div>
+                </section>
+                
             </section>
         </div>
     </div>
-
-<template id="hiza_in_example">
-$if (a == b) {
-    <h1> ${a} == ${b} </h1>
-}
-$else {
-    <h3> ${a} and ${b} are not equal! </h3>
-}
-</template>
 
     <script src="assets/plugins/revealjs/reveal.js"></script>
     <script src="assets/plugins/notes/notes.js"></script>
@@ -292,47 +392,63 @@ $else {
             open('#/slide_3_2', '_self');
         }
 
-        hiza_in.value = hiza_in_example.innerHTML.trim();
-        
-        hiza_var.value = JSON.stringify({
-            a: 3,
-            b: 4
-        }, null, 2);
-
-        hiza_js.value = 'let out = await hiza.engine.build(hiza_in.value, variables);\nhiza_out.value = out;';
-
-        build_hiza.onclick = async function() {
-            let variables = null;
-            try {
-                variables = JSON.parse(hiza_var.value);
-            }
-            catch {
-                hiza_out.value = '"variables" contains invalid JSON';
-                return;
-            }
-
-            try {
-                let out = await hiza.engine.build(hiza_in.value, variables);
-                hiza_out.value = out.trim();
-            }
-            catch(e) {
-                hiza_out.value = e.toString();
-            }
-
-            // // Enable next example
-            // setTimeout(function() {
-            //     hiza_goto_3_3.parentElement.classList.remove('opacity-0');
-            //     hiza_goto_3_3.classList.remove('cursor-default');
-            // }, 500);
-        }
-        hiza_out.value = 'Edit input and variables, or just run the example';
-
         hiza_tutorial.onclick = function() {
             open('https://app.my-rents.com/web/hiza-tutorial.html', '_blank');
         }
 
-        hiza_goto_3_3.onclick = function() {
-            open('#/slide_3_3', '_self');
+        // Initialize all HIŽA sections
+        let hiza_section_list = document.querySelectorAll('.hiza_section');
+        for (let hiza_section of hiza_section_list) {
+
+            // Get buttons and inputs
+            let hiza_in = hiza_section.querySelector('[data-hiza_in]');
+            let hiza_example = hiza_section.querySelector('[data-hiza_example]');
+            let hiza_var = hiza_section.querySelector('[data-hiza_var]');
+            let hiza_out = hiza_section.querySelector('[data-hiza_out]');
+            let build_hiza = hiza_section.querySelector('[data-build_hiza]');
+            let hiza_goto = hiza_section.querySelector('[data-hiza_goto]');
+
+            hiza_in.value = hiza_example.innerHTML.trim().replaceAll('\n                            ', '\n');
+
+            // Format JSON
+            let hiza_var_obj = JSON.parse(hiza_var.value);
+            hiza_var.value = JSON.stringify(hiza_var_obj, null, 2);
+            
+            build_hiza.onclick = async function() {
+
+                let variables = null;
+                try {
+                    variables = JSON.parse(hiza_var.value);
+                }
+                catch {
+                    hiza_out.value = '"variables" contains invalid JSON';
+                    return;
+                }
+    
+                try {
+                    let out = await hiza.engine.build(hiza_in.value, variables);
+                    hiza_out.value = out.trim();
+                }
+                catch(e) {
+                    hiza_out.value = e.toString();
+                }
+    
+                // Enable next example
+                if (hiza_goto) {
+                    setTimeout(function() {
+                        hiza_goto.parentElement.classList.remove('opacity-0');
+                        hiza_goto.classList.remove('cursor-default');
+                    }, 500);
+                }
+            }
+
+            hiza_out.value = 'Edit input and variables, or just run the example';
+
+            if (hiza_goto) {
+                hiza_goto.onclick = function() {
+                    open(hiza_goto.dataset.hiza_goto, '_self');
+                }
+            }
         }
 
         let tooltips = document.querySelectorAll('[data-tooltip]');
