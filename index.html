@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Stjepan Salopek | @shtef21</title>
+    <title>reveal.js</title>
 
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/plugins/revealjs/reveal.css">
@@ -67,9 +67,8 @@
 
         .slide_img {
             margin: 0;
-            height: 225px;
+            height: 300px;
             border-radius: 50%;
-            border: 2px solid rgba(0, 0, 0, 0.3);
         }
 
         #js_img {
@@ -122,26 +121,31 @@
 
                 <!-- Vertical slide 1 -->
                 <section id="slide_1_1">
-                    <div class="inline-block text-right align-bottom">
-                        Hey, I'm <br>
+                    <div class="inline-block text-right align-bottom w-[48%]">
+
+                        <span id="say_hello">
+                            <!-- Hey, I'm -->
+                        </span>
+                        <br>
                         <span id="my_name">
-                            Stjepan
+                            <!-- Stjepan -->
                         </span>
                     </div>
-                    <div class="inline-block text-left align-bottom">
-                        <img class="slide_img" src="/assets/images/dis-my-face.jpg" alt="Hey!">
+                    <div class="inline-block text-left align-bottom w-[48%]">
+                        <!-- <img class="slide_img" src="/assets/images/dis-my-face.jpg" alt="Hey!"> -->
+                        <img class="slide_img border border-black border-2" src="/assets/images/dis-another-face.jpg" alt="Hey!">
                     </div>
                     <div class="inline-block slide_button_div w-full">
 
-                        <button id="open_cv" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl">
+                        <button id="open_cv" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
                             Check out my CV <i class="fa-solid fa-file-signature"></i>
                         </button>
                         <br>
-                        <button id="open_email" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl" data-tooltip="stjepan.salopek@hotmail.com">
+                        <button id="open_email" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl" data-tooltip="stjepan.salopek@hotmail.com">
                             Contact me by e-mail <i class="fa-solid fa-envelope"></i>
                         </button>
                         <br>
-                        <button id="open_linkedin" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-3 px-5 border border-blue-500 hover:border-transparent rounded-3xl" data-title="Stjepan Salopek">
+                        <button id="open_linkedin" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl" data-title="Stjepan Salopek">
                             Reach me <i class="fa-brands fa-linkedin"></i>
                         </button>
                     </div>
@@ -195,8 +199,18 @@
                     </div>
                 </section>
                 
-                <!-- Vertical 2 -->
-                <section id="slide_3_2" class="hiza_section">
+                <!-- Vertical 1 -->
+                <section id="slide_3_2" class="p-3">
+                    <div class="inline-block text-xl text-[#efd81d] w-full pb-[40px]">
+                        It generates an output using an input string and variables used in it
+                    </div>
+                    <figure style="width: 75%; margin: 0 auto;">
+                        <img src="assets/images/hiza-demo.png" ondragstart="return false;">
+                    </figure>
+                </section>
+
+                <!-- Vertical 3 -->
+                <section id="slide_3_3" class="hiza_section">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         it uses JavaScript's ${} templating synthax...
                     </div>
@@ -230,14 +244,14 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     </div>
                     <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
 
-                        <button data-hiza_goto="#/slide_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                        <button data-hiza_goto="#/slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
                             <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
                         </button>
                     </div>
                 </section>
                 
-                <!-- Vertical 3 -->
-                <section id="slide_3_3" class="hiza_section">
+                <!-- Vertical 4 -->
+                <section id="slide_3_4" class="hiza_section">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         ... and enables you to use razor-like keywords such as <strong>$if-else</strong>...
                     </div>
@@ -282,14 +296,14 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     </div>
                     <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
 
-                        <button data-hiza_goto="#/slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                        <button data-hiza_goto="#/slide_3_5" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
                             <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
                         </button>
                     </div>
                 </section>
                 
-                <!-- Vertical 3 -->
-                <section id="slide_3_4" class="hiza_section">
+                <!-- Vertical 5 -->
+                <section id="slide_3_5" class="hiza_section">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         ... you may even use a <strong>$for</strong> loop
                     </div>
@@ -329,7 +343,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
 
                         <!-- This is the last slide -->
-                        <!-- <button data-hiza_goto="slide_3_3" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
+                        <!-- <button data-hiza_goto="slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
                             <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
                         </button> -->
                     </div>
@@ -344,10 +358,14 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
     <script src="assets/plugins/markdown/markdown.js"></script>
     <script src="assets/plugins/highlight/highlight.js"></script>
 
+    <!-- TypeIt -->
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+
     <!-- Tooltips -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script>
+
         // More info about initialization & config:
         // - https://revealjs.com/initialization/
         // - https://revealjs.com/config/
@@ -357,6 +375,8 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
         });
+
+        // Slide change trigger
         Reveal.on('slidechanged', function(event) {
             if (event.currentSlide.id == 'slide_1_1') {
                 goto_start.classList.add('cursor-default');
@@ -366,6 +386,35 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 goto_start.classList.remove('cursor-default');
                 goto_start.classList.remove('opacity-0');
             }
+        })
+
+        // Page ready trigger
+        Reveal.on('ready', async function(event) {
+
+            // Typing animation init
+            
+            await new TypeIt('#say_hello', {
+                speed: 100,
+                startDelay: 900
+            })
+                .type('Hey, my nam', { delay: 100 })
+                .delete('my nam'.length, { delay: 200 })
+                .type('Im', { delay: 50 })
+                .delete(1)
+                .type('\'m', {
+                    afterComplete: function (instance) {
+                        instance.destroy();
+                        new TypeIt('#my_name', {
+                            strings: ['Stjepan']
+                        }).go();
+                    }
+                })
+                .go();
+            
+        });
+
+        window.addEventListener('hashchange', function() {
+            console.log('New hash: ' + location.hash);
         })
 
         goto_start.onclick = function() {
@@ -459,5 +508,4 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
         }
     </script>
 </body>
-
 </html>
