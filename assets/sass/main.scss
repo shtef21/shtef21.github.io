@@ -1,0 +1,91 @@
+
+#goto_start {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 9999;
+}
+
+.roboto_mono {
+    font-family: 'Roboto Mono';
+}
+
+#slide_1_1, #slide_2_1, #slide_3_1, #slide_5_1 {
+
+    div {
+        height: 225px;
+        line-height: 112px;
+    }
+}
+
+#slide_4_1 {
+
+    div {
+        height: 225px;
+        line-height: 75px;
+    }
+}
+
+#slide_5_1 {
+
+    .medium_icon {
+        color: white;
+        background: black;
+        font-size: 300px;
+    }
+}
+
+.slide_button_div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: unset !important;
+    line-height: unset !important;
+    padding-top: 50px;
+    font-size: 1.5rem;
+    transform: translateY(100%);
+}
+
+.slide_button_div button {
+    margin-top: 15px;
+}
+
+.slide_img {
+    margin: 0;
+    height: 300px;
+    border-radius: 50%;
+}
+
+#js_img {
+    margin: 0;
+    height: 225px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.hiza_section .w-full {
+    width: 100% !important;
+}
+
+.hiza_section > div {
+    width: 45%;
+}
+
+.hiza_section textarea, .hiza_section pre[data-hiza_js] {
+    color: black;
+    font-size: 1rem;
+    width: 100%;
+    height: 150px;
+    resize: none;
+    padding: 10px 5px;
+    margin: 0 !important;
+}
+
+[data-hiza_js] {
+    height: calc(3rem + 20px) !important;
+    padding-top: 12px !important;
+    overflow: hidden !important;
+}
+
+[data-hiza_out] {
+    height: 5.5rem !important;
+}
