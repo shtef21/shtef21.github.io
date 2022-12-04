@@ -63,12 +63,8 @@
                             Check out my CV <i class="fa-solid fa-file-signature"></i>
                         </button>
                         <br>
-                        <button id="open_email" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl" data-tooltip="stjepan.salopek@hotmail.com">
-                            Contact me by e-mail <i class="fa-solid fa-envelope"></i>
-                        </button>
-                        <br>
-                        <button id="open_linkedin" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl" data-title="Stjepan Salopek">
-                            Reach me <i class="fa-brands fa-linkedin"></i>
+                        <button id="open_contact_slide" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
+                            Contact me <i class="fa-solid fa-comments"></i>
                         </button>
                     </div>
                 </section>
@@ -288,7 +284,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     <div class="inline-block slide_button_div w-full">
 
                         <button id="open_tvz" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
-                            Find out more <i class="fa-solid fa-school"></i>
+                            Uni website <i class="fa-solid fa-school"></i>
                         </button>
                     </div>
                 </section>
@@ -299,23 +295,57 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
             </section>
 
             <!-- Slide 5 -->
-            <!-- <section class="select-none roboto_mono">
+            <section class="select-none roboto_mono">
+                <!-- Vertical 1 -->
                 <section id="slide_5_1" data-background="white">
                     <div class="inline-block text-right align-bottom">
-                        I'm a <u>Medium.com</u> <br>
-                        writer
+                        I'm a <br>
+                        <u>Medium.com</u> writer
                     </div>
                     <div class="inline-block text-left align-bottom">
-                        <i class="medium_icon fa-brands fa-medium"></i>
+                        <img class="slide_img" src="/assets/images/medium.svg" alt="Hey!">
                     </div>
                     <div class="inline-block slide_button_div w-full">
 
-                        <button id="open_tvz" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
-                            Find out more <i class="fa-solid fa-school"></i>
+                        <button id="open_medium" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
+                            Check it out <i class="fa-solid fa-feather-pointed"></i>
                         </button>
                     </div>
                 </section>
-            </section> -->
+                <!-- Vertical 2 -->
+                <!-- <section>
+                    Vertical slide 2
+                </section> -->
+            </section>
+
+            <!-- Slide 6 -->
+            <section class="select-none roboto_mono" data-background-color="white">
+            <!-- data-background-color="#00447c"> -->
+
+                <!-- Vertical slide 1 -->
+                <section id="slide_6_1">
+                    <div class="inline-block text-center align-bottom w-full">
+                        Want to collaborate? <br>
+                        Reach out!
+                    </div>
+                    <div class="inline-block slide_button_div w-full">
+
+                        <!-- <button id="open_cv_2" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
+                            Curriculum Vitae <i class="fa-solid fa-file-signature"></i>
+                        </button>
+                        <br> -->
+                        <button id="open_email" class="text-black font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-tooltip="stjepan.salopek@hotmail.com">
+                            <i class="fa-regular fa-envelope"></i>
+                        </button>
+                        <button id="open_linkedin" class="text-[#0a66c2] font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-title="Stjepan Salopek">
+                            <i class="ml-1 fa-brands fa-linkedin"></i>
+                        </button>
+                        <button id="open_github_2" class="text-black font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-tooltip="github.com/shtef21">
+                            <i class="fa-brands fa-github"></i>
+                        </button>
+                    </div>
+                </section>
+            </section>
 
         </div>
     </div>
@@ -370,19 +400,31 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
             })
     
             goto_start.onclick = function() {
-                open('/#', '_self');
+                location.hash = '#/slide_1_1';
             }
     
             open_cv.onclick = function() {
                 open('assets\\documents\\Curriculum Vitae.pdf', '_blank');
             }
+    
+            // open_cv_2.onclick = function() {
+            //     open('assets\\documents\\Curriculum Vitae.pdf', '_blank');
+            // }
             
             open_tvz.onclick = function() {
                 open('https://tvz.hr', '_blank');
             }
+
+            open_medium.onclick = function() {
+                open('https://medium.com/@shtef21', '_blank');
+            }
     
             open_linkedin.onclick = function() {
                 open('https://www.linkedin.com/in/stjepan-salopek-5a68a8256', '_blank');
+            }
+
+            open_contact_slide.onclick = function() {
+                location.hash = '#/slide_6_1';
             }
     
             open_email.onclick = function() {
@@ -393,8 +435,12 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 open('https://github.com/shtef21', '_blank');
             }
     
+            open_github_2.onclick = function() {
+                open('https://github.com/shtef21', '_blank');
+            }
+    
             open_hiza_engine.onclick = function() {
-                open('#/slide_3_2', '_self');
+                location.hash = '#/slide_3_2';
             }
     
             hiza_tutorial.onclick = function() {
@@ -451,7 +497,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
     
                 if (hiza_goto) {
                     hiza_goto.onclick = function() {
-                        open(hiza_goto.dataset.hiza_goto, '_self');
+                        location.hash = hiza_goto.dataset.hiza_goto;
                     }
                 }
             }
