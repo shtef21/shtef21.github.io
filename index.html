@@ -37,6 +37,10 @@
 </head>
 <body class="opacity-0 transition-opacity duration-500 bg-white">
 
+    <button id="hiza_next_b" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow-lg roboto_mono transition-opacity duration-500">
+        <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
+    </button>
+
     <button id="goto_start" class="opacity-0 transition-opacity duration-200 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
         <i class="fa-solid fa-backward-step"></i>
     </button>
@@ -128,7 +132,7 @@
                 </section>
 
                 <!-- Vertical 3 -->
-                <section id="slide_3_3" class="hiza_section">
+                <section id="slide_3_3" class="hiza_section" data-hiza_next="#/slide_3_4">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         it uses JavaScript's ${} templating synthax...
                     </div>
@@ -160,16 +164,10 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         <span class="text-[#5f5fff]">#hiza_out</span>
                         <textarea data-hiza_out></textarea>
                     </div>
-                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
-
-                        <button data-hiza_goto="#/slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
-                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
-                        </button>
-                    </div>
                 </section>
                 
                 <!-- Vertical 4 -->
-                <section id="slide_3_4" class="hiza_section">
+                <section id="slide_3_4" class="hiza_section" data-hiza_next="#/slide_3_5">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         ... and enables you to use razor-like keywords such as <strong>$if-else</strong>...
                     </div>
@@ -212,12 +210,6 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         <span class="text-[#5f5fff]">#hiza_out</span>
                         <textarea data-hiza_out></textarea>
                     </div>
-                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
-
-                        <button data-hiza_goto="#/slide_3_5" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
-                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
-                        </button>
-                    </div>
                 </section>
                 
                 <!-- Vertical 5 -->
@@ -257,13 +249,6 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     <div class="inline-block text-center align-bottom pt-3" style="width: 92.5%;">
                         <span class="text-[#5f5fff]">#hiza_out</span>
                         <textarea data-hiza_out></textarea>
-                    </div>
-                    <div class="opacity-0 transition-opacity duration-700 slide_button_div w-full">
-
-                        <!-- This is the last slide -->
-                        <!-- <button data-hiza_goto="slide_3_4" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow cursor-default">
-                            <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
-                        </button> -->
                     </div>
                 </section>
                 
@@ -377,6 +362,9 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
     
             // Slide change trigger
             Reveal.on('slidechanged', function(event) {
+
+                // Run animation again on slide 1
+                // Show GOTO START when not slide 1
                 if (event.currentSlide.id == 'slide_1_1') {
                     run_animation();
                     goto_start.classList.add('cursor-default');
@@ -386,6 +374,9 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     goto_start.classList.remove('cursor-default');
                     goto_start.classList.remove('opacity-0');
                 }
+
+                // Hide NEXT if shown
+                hiza_next_b.classList.remove('shown');
             })
     
             // Page ready trigger
@@ -457,7 +448,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 let hiza_var = hiza_section.querySelector('[data-hiza_var]');
                 let hiza_out = hiza_section.querySelector('[data-hiza_out]');
                 let build_hiza = hiza_section.querySelector('[data-build_hiza]');
-                let hiza_goto = hiza_section.querySelector('[data-hiza_goto]');
+                let hiza_next = hiza_section.dataset.hiza_next;
     
                 hiza_in.value = hiza_example.innerHTML.trim().replaceAll('\n                            ', '\n');
     
@@ -484,22 +475,23 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         hiza_out.value = e.toString();
                     }
         
-                    // Enable next example
-                    if (hiza_goto) {
-                        setTimeout(function() {
-                            hiza_goto.parentElement.classList.remove('opacity-0');
-                            hiza_goto.classList.remove('cursor-default');
-                        }, 500);
-                    }
+                    // TODO: Finish this
+                    //       (Add smooth opacity change)
+                    // // Show next button if available
+                    // if (hiza_next) {
+                    //     hiza_next_b.classList.add('shown');
+                    //     hiza_next_b.onclick = function() {
+                    //         location.hash = hiza_next;
+                    //     }
+                    //     // Hide it after 3s
+                    //     setTimeout(function() {
+                    //         hiza_next_b.classList.remove('shown');
+                    //     }, 3000);
+                    // }
+
                 }
     
                 hiza_out.value = 'Edit input and variables, or just run the example';
-    
-                if (hiza_goto) {
-                    hiza_goto.onclick = function() {
-                        location.hash = hiza_goto.dataset.hiza_goto;
-                    }
-                }
             }
     
             let tooltips = document.querySelectorAll('[data-tooltip]');
