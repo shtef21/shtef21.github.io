@@ -1,3 +1,7 @@
+.w-full {
+  width: 100% !important;
+}
+
 #goto_start {
   position: absolute;
   bottom: 5px;
@@ -57,14 +61,9 @@
   border: 2px solid rgba(0, 0, 0, 0.3);
 }
 
-.hiza_section .w-full {
-  width: 100% !important;
-}
-
 .hiza_section > div {
   width: 45%;
 }
-
 .hiza_section textarea, .hiza_section pre[data-hiza_js] {
   color: black;
   font-size: 1rem;
@@ -73,16 +72,62 @@
   resize: none;
   padding: 10px 5px;
   margin: 0 !important;
+  transition: height 0.5s ease-out;
 }
-
-[data-hiza_js] {
+.hiza_section textarea.half_height, .hiza_section pre[data-hiza_js].half_height {
+  height: 90px;
+}
+.hiza_section textarea:not(.half_height):focus, .hiza_section pre[data-hiza_js]:not(.half_height):focus {
+  height: 300px;
+}
+.hiza_section pre[data-hiza_js] {
   height: calc(3rem + 20px) !important;
   padding-top: 12px !important;
   overflow: hidden !important;
 }
+.hiza_section textarea[data-hiza_out] {
+  height: 5.5rem;
+  transition: height 0.5s ease-out;
+}
+.hiza_section textarea[data-hiza_out]:focus {
+  height: 10rem;
+}
 
-[data-hiza_out] {
-  height: 5.5rem !important;
+#hiza_next_b {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  user-select: none;
+  transition: opacity 0.35s;
+}
+#hiza_next_b.shown {
+  z-index: 999;
+  user-select: unset;
+}
+
+#modal_next {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  user-select: none;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+#modal_next.shown {
+  opacity: 1;
+  z-index: 999;
+  user-select: unset;
+}
+#modal_next button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=main.css.map */
