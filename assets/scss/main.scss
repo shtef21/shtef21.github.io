@@ -118,9 +118,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
     z-index: -1;
     user-select: none;
-    transition: opacity .35s;
 
     &.shown {
         z-index: 999;

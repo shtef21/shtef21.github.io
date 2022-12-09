@@ -348,21 +348,23 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
 
             let animation = anime({
                 targets: hiza_next_b,
-                opacity: 1
+                opacity: 1,
+                easing: 'linear'
             });
         }
 
         // Hide "NEXT" button on HIŽA slides
         function hiza_hide_next() {
-            
+
             // If animation hasn't started already
-            if (hiza_next_b.classList.includes('anime_start') == false) {
+            if (hiza_next_b.classList.contains('anime_start') == false) {
 
                 hiza_next_b.classList.add('anime_start');
     
                 let animation = anime({
                     targets: hiza_next_b,
-                    opacity: 0
+                    opacity: 0,
+                    easing: 'linear'
                 });
                 animation.complete = function() {
                     hiza_next_b.classList.remove('anime_start');
