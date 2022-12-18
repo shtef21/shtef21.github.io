@@ -1,3 +1,7 @@
+.w-full {
+  width: 100% !important;
+}
+
 #goto_start {
   position: absolute;
   bottom: 5px;
@@ -9,22 +13,22 @@
   font-family: "Roboto Mono";
 }
 
-#slide_1_1 div, #slide_2_1 div, #slide_3_1 div, #slide_5_1 div {
+#slide_1_1 div, #slide_2_1 div, #slide_3_1 div, #slide_6_1 div {
   height: 225px;
   line-height: 112px;
 }
 
-#slide_4_1 div {
+#slide_4_1 div, #slide_5_1 div {
   height: 225px;
   line-height: 75px;
 }
 
-#slide_5_1 .medium_icon {
+#slide_6_1 .medium_icon {
   color: white;
   background: black;
   font-size: 300px;
 }
-#slide_5_1 .slide_img {
+#slide_6_1 .slide_img {
   margin: 0;
   height: 300px;
   border-radius: 0 !important;
@@ -50,6 +54,9 @@
   height: 300px;
   border-radius: 50%;
 }
+.slide_img.no_round {
+  border-radius: unset;
+}
 
 #js_img {
   margin: 0;
@@ -57,14 +64,9 @@
   border: 2px solid rgba(0, 0, 0, 0.3);
 }
 
-.hiza_section .w-full {
-  width: 100% !important;
-}
-
 .hiza_section > div {
   width: 45%;
 }
-
 .hiza_section textarea, .hiza_section pre[data-hiza_js] {
   color: black;
   font-size: 1rem;
@@ -73,6 +75,25 @@
   resize: none;
   padding: 10px 5px;
   margin: 0 !important;
+  transition: height 0.5s ease-out;
+}
+.hiza_section textarea.half_height, .hiza_section pre[data-hiza_js].half_height {
+  height: 90px;
+}
+.hiza_section textarea:not(.half_height):focus, .hiza_section pre[data-hiza_js]:not(.half_height):focus {
+  height: 300px;
+}
+.hiza_section pre[data-hiza_js] {
+  height: calc(3rem + 20px) !important;
+  padding-top: 12px !important;
+  overflow: hidden !important;
+}
+.hiza_section textarea[data-hiza_out] {
+  height: 5.5rem;
+  transition: height 0.5s ease-out;
+}
+.hiza_section textarea[data-hiza_out]:focus {
+  height: 10rem;
 }
 
 #hiza_next_b {
@@ -82,11 +103,11 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.35s;
+  user-select: none;
 }
 #hiza_next_b.shown {
-  opacity: 1;
   z-index: 999;
+  user-select: unset;
 }
 
 #modal_next {
@@ -110,16 +131,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-[data-hiza_js] {
-  height: calc(3rem + 20px) !important;
-  padding-top: 12px !important;
-  overflow: hidden !important;
-}
-
-[data-hiza_out] {
-  height: 5.5rem !important;
 }
 
 /*# sourceMappingURL=main.css.map */

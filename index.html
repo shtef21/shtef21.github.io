@@ -37,7 +37,7 @@
 </head>
 <body class="opacity-0 transition-opacity duration-500 bg-white">
 
-    <button id="hiza_next_b" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow-lg roboto_mono transition-opacity duration-500">
+    <button id="hiza_next_b" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow-2xl roboto_mono transition-opacity duration-500">
         <i class="fa-solid fa-arrow-down"></i> Next <i class="fa-solid fa-arrow-down"></i>
     </button>
 
@@ -48,7 +48,7 @@
     <div class="reveal">
         <div class="slides">
 
-            <!-- Slide 1 -->
+            <!-- Slide 1 - Hey, I'm Stjepan -->
             <section class="select-none roboto_mono" data-background-color="white">
             <!-- data-background-color="#00447c"> -->
 
@@ -74,7 +74,7 @@
                 </section>
             </section>
 
-            <!-- Slide 2 -->
+            <!-- Slide 2 - I'm a .NET developer -->
             <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
                 <section id="slide_2_1" data-background-gradient="linear-gradient(to bottom, #24292f, #121417)">
@@ -98,9 +98,10 @@
                 </section> -->
             </section>
 
-            <!-- Slide 3 -->
+            <!-- Slide 3 - HIŽA -->
             <section class="select-none roboto_mono" data-background-gradient="linear-gradient(to bottom, #24292f, #121417)">
-                <!-- Vertical 1 -->
+
+                <!-- Vertical 1 - I'm the creator... -->
                 <section id="slide_3_1">
                     <div class="inline-block text-right align-bottom">
                         I'm the creator of <br>
@@ -121,7 +122,7 @@
                     </div>
                 </section>
                 
-                <!-- Vertical 1 -->
+                <!-- Vertical 2 - Graphic intro -->
                 <section id="slide_3_2" class="p-3">
                     <div class="inline-block text-xl text-[#efd81d] w-full pb-[40px]">
                         It generates an output using an input string and variables used in it
@@ -131,7 +132,7 @@
                     </figure>
                 </section>
 
-                <!-- Vertical 3 -->
+                <!-- Vertical 3 - Templating -->
                 <section id="slide_3_3" class="hiza_section" data-hiza_next="#/slide_3_4">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         it uses JavaScript's ${} templating synthax...
@@ -139,14 +140,14 @@
                     <div class="inline-block text-left">
                         <span class="text-[red]">#hiza_in</span>
                         <!-- Hiža string-->
-                        <textarea data-hiza_in></textarea>
+                        <textarea data-hiza_in class="half_height"></textarea>
                         <template data-hiza_example>
                             Hello, my name is ${name}!
                         </template>
                     </div>
                     <div class="inline-block text-left align-bottom">
                         <span class="text-[green]">variables</span>
-                        <textarea data-hiza_var>{"name":"Steve"}</textarea>
+                        <textarea data-hiza_var class="half_height">{"name":"Steve"}</textarea>
                     </div>
                     <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
                         <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
@@ -166,7 +167,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     </div>
                 </section>
                 
-                <!-- Vertical 4 -->
+                <!-- Vertical 4 - $else $if -->
                 <section id="slide_3_4" class="hiza_section" data-hiza_next="#/slide_3_5">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         ... and enables you to use razor-like keywords such as <strong>$if-else</strong>...
@@ -194,13 +195,6 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         <span class="text-[green]">variables</span>
                         <textarea data-hiza_var>{"weather":"rain"}</textarea>
                     </div>
-                    <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
-                        <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
-                        <pre data-hiza_js class="bg-slate-300 text-[black] text-md" readonly>
-let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value, <span class="text-[green]">variables</span>);
-<span class="text-[blue]">hiza_out</span>.value = out;
-                        </pre>
-                    </div>
                     <div class="inline-block text-center align-bottom pt-3">
                         <button data-build_hiza class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
                             <i class="fa-solid fa-cog"></i> Run JS <i class="fa-solid fa-cog"></i>
@@ -212,7 +206,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     </div>
                 </section>
                 
-                <!-- Vertical 5 -->
+                <!-- Vertical 5 - $looping -->
                 <section id="slide_3_5" class="hiza_section">
                     <div class="inline-block text-xl pb-4 text-[#efd81d] w-full">
                         ... you may even use a <strong>$for</strong> loop
@@ -233,13 +227,6 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                     <div class="inline-block text-left align-bottom">
                         <span class="text-[green]">variables</span>
                         <textarea data-hiza_var>{"people":["John", "Whitney", "Mike"]}</textarea>
-                    </div>
-                    <div class="inline-block text-left align-bottom pt-3" style="width: 92.5%;">
-                        <!-- <i class="fa-brands fa-square-js" style="color:#efd81d"></i> -->
-                        <pre data-hiza_js class="bg-slate-300 text-[black] text-md" readonly>
-let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value, <span class="text-[green]">variables</span>);
-<span class="text-[blue]">hiza_out</span>.value = out;
-                        </pre>
                     </div>
                     <div class="inline-block text-center align-bottom pt-3">
                         <button data-build_hiza class="text-lg bg-[#efd81d] hover:bg-[#d7bf00] text-gray-800 font-semibold py-3 px-5 border border-gray-400 rounded-3xl shadow">
@@ -284,6 +271,31 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 <!-- Vertical 1 -->
                 <section id="slide_5_1" data-background="white">
                     <div class="inline-block text-right align-bottom">
+                        I've been running a <br>
+                        local parish <br>
+                        website since 2020
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <img class="slide_img no_round" src="/assets/images/church-icon.png" alt="Hey!">
+                    </div>
+                    <div class="inline-block slide_button_div w-full">
+
+                        <button id="open_parish" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl">
+                            Check it out <i class="fa-solid fa-fish"></i>
+                        </button>
+                    </div>
+                </section>
+                <!-- Vertical 2 -->
+                <!-- <section>
+                    Vertical slide 2
+                </section> -->
+            </section>
+
+            <!-- Slide 6 -->
+            <section class="select-none roboto_mono">
+                <!-- Vertical 1 -->
+                <section id="slide_6_1" class="slide_medium_com" data-background="white">
+                    <div class="inline-block text-right align-bottom">
                         I'm a <br>
                         <u>Medium.com</u> writer
                     </div>
@@ -303,12 +315,12 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 </section> -->
             </section>
 
-            <!-- Slide 6 -->
+            <!-- Slide 7 -->
             <section class="select-none roboto_mono" data-background-color="white">
             <!-- data-background-color="#00447c"> -->
 
                 <!-- Vertical slide 1 -->
-                <section id="slide_6_1">
+                <section id="slide_7_1">
                     <div class="inline-block text-center align-bottom w-full">
                         Want to collaborate? <br>
                         Reach out!
@@ -322,7 +334,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         <button id="open_email" class="text-black font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-tooltip="stjepan.salopek@hotmail.com">
                             <i class="fa-regular fa-envelope"></i>
                         </button>
-                        <button id="open_linkedin" class="text-[#0a66c2] font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-title="Stjepan Salopek">
+                        <button id="open_linkedin" class="text-[#0a66c2] font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-tooltip="Stjepan Salopek">
                             <i class="ml-1 fa-brands fa-linkedin"></i>
                         </button>
                         <button id="open_github_2" class="text-black font-semibold py-3 px-5 rounded-3xl text-[5rem]" data-tooltip="github.com/shtef21">
@@ -343,10 +355,49 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
     <!-- TypeIt -->
     <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
 
+    <!-- AnimeJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Tooltips -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script>
+
+        // Show "NEXT" button on HIŽA slides
+        function hiza_show_next(next_slide) {
+            
+            hiza_next_b.classList.add('shown');
+            hiza_next_b.onclick = function() {
+                location.hash = next_slide;
+            }
+
+            let animation = anime({
+                targets: hiza_next_b,
+                opacity: 1,
+                easing: 'linear'
+            });
+        }
+
+        // Hide "NEXT" button on HIŽA slides
+        function hiza_hide_next() {
+
+            // If animation hasn't started already
+            if (hiza_next_b.classList.contains('anime_start') == false) {
+
+                hiza_next_b.classList.add('anime_start');
+    
+                let animation = anime({
+                    targets: hiza_next_b,
+                    opacity: 0,
+                    easing: 'linear'
+                });
+                animation.complete = function() {
+                    hiza_next_b.classList.remove('anime_start');
+                    hiza_next_b.classList.remove('shown');
+                    hiza_next_b.onclick = null;
+                }
+            }
+        }
 
         function on_load() {
 
@@ -376,7 +427,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 }
 
                 // Hide NEXT if shown
-                hiza_next_b.classList.remove('shown');
+                hiza_hide_next();
             })
     
             // Page ready trigger
@@ -404,6 +455,10 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
             
             open_tvz.onclick = function() {
                 open('https://tvz.hr', '_blank');
+            }
+
+            open_parish.onclick = function() {
+                open('https://zupa-ubdm-nart-savski.hr', '_blank');
             }
 
             open_medium.onclick = function() {
@@ -448,7 +503,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 let hiza_var = hiza_section.querySelector('[data-hiza_var]');
                 let hiza_out = hiza_section.querySelector('[data-hiza_out]');
                 let build_hiza = hiza_section.querySelector('[data-build_hiza]');
-                let hiza_next = hiza_section.dataset.hiza_next;
+                let next_slide = hiza_section.dataset.hiza_next;
     
                 hiza_in.value = hiza_example.innerHTML.trim().replaceAll('\n                            ', '\n');
     
@@ -475,19 +530,15 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                         hiza_out.value = e.toString();
                     }
         
-                    // TODO: Finish this
-                    //       (Add smooth opacity change)
-                    // // Show next button if available
-                    // if (hiza_next) {
-                    //     hiza_next_b.classList.add('shown');
-                    //     hiza_next_b.onclick = function() {
-                    //         location.hash = hiza_next;
-                    //     }
-                    //     // Hide it after 3s
-                    //     setTimeout(function() {
-                    //         hiza_next_b.classList.remove('shown');
-                    //     }, 3000);
-                    // }
+                    // Show next button if available
+                    if (next_slide) {
+                        hiza_show_next(next_slide);
+
+                        // Hide it after 3s
+                        setTimeout(function() {
+                            hiza_hide_next();
+                        }, 3000);
+                    }
 
                 }
     
