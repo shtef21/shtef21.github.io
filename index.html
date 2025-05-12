@@ -74,7 +74,7 @@
                 </section>
             </section>
 
-            <!-- Slide 2 - I'm a .NET developer -->
+            <!-- Slide 2 - I develop... -->
             <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
                 <section id="slide_2_1" data-background-gradient="linear-gradient(to bottom, #24292f, #121417)">
@@ -241,7 +241,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 
             </section>
 
-            <!-- Slide 4 -->
+            <!-- Slide 4 - College (Zagreb Uni. of Appl. Sci.) -->
             <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
                 <section id="slide_4_1" data-background="white">
@@ -266,14 +266,14 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 </section> -->
             </section>
 
-            <!-- Slide 5 -->
+            <!-- Slide 5 - Parish website -->
             <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
                 <section id="slide_5_1" data-background="white">
                     <div class="inline-block text-right align-bottom">
                         I've created and <br>
-                        have been maintaining<br>
-                        local parish website
+                        maintained a parish <br>
+                        website since 2020
                     </div>
                     <div class="inline-block text-left align-bottom">
                         <img class="slide_img no_round" src="/assets/images/church-icon.png" alt="Hey!">
@@ -291,10 +291,33 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 </section> -->
             </section>
 
-            <!-- Slide 6 -->
+            <!-- Slide 6 - Young people -->
             <section class="select-none roboto_mono">
                 <!-- Vertical 1 -->
-                <section id="slide_6_1" class="slide_medium_com" data-background="white">
+                <section id="slide_6_1" data-background="white">
+                    <div class="inline-block text-right align-bottom">
+                        I've been certified <br>
+                        as a youth animator
+                    </div>
+                    <div class="inline-block text-left align-bottom">
+                        <i class="fa-solid fa-people-group pl-[10px] text-[100px]"></i>
+                    </div>
+                    <div class="inline-block slide_button_div w-full">
+                        <button id="open_youth" class="bg-white hover:bg-[#00447c] text-[#00447c] font-semibold hover:text-white py-3 px-5 border border-2 border-[#00447c] rounded-3xl" title="Opens up a Croatian certificate">
+                            Check it out <i class="fa-solid fa-user-check"></i>
+                        </button>
+                    </div>
+                </section>
+                <!-- Vertical 2 -->
+                <!-- <section>
+                    Vertical slide 2
+                </section> -->
+            </section>
+
+            <!-- Slide 7 - Medium.com -->
+            <section class="select-none roboto_mono">
+                <!-- Vertical 1 -->
+                <section id="slide_7_1" class="slide_medium_com" data-background="white">
                     <div class="inline-block text-right align-bottom">
                         I wrote a few <br>
                         <u>Medium.com</u> blogs
@@ -315,7 +338,7 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
                 </section> -->
             </section>
 
-            <!-- Slide 7 -->
+            <!-- Slide 8 - Want to collaborate? -->
             <section class="select-none roboto_mono" data-background-color="white">
             <!-- data-background-color="#00447c"> -->
 
@@ -450,6 +473,10 @@ let out = await hiza.engine.build(<span class="text-[red]">hiza_in</span>.value,
 
             open_parish.onclick = function() {
                 open('https://zupa-ubdm-nart-savski.hr', '_blank');
+            }
+
+            open_youth.onclick = function() {
+                open('assets\\documents\\certifikat-mladi_za_mlade.pdf', '_blank');
             }
 
             open_medium.onclick = function() {
